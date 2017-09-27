@@ -9,6 +9,9 @@ import { HeaderComponent } from './header/header.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { ProjectsPageComponent } from './projects-page/projects-page.component';
 import { SupplierDetailsComponent } from './supplier-details/supplier-details.component';
+import { SupplierChainService } from './common/services/supplierchain.service';
+import { SupplierMetaService } from './common/services/suppliersmeta.service';
+import { ConfigurationProvider } from './config/configuration.provider';
 
 import { StarRatingModule } from 'angular-star-rating';
 
@@ -27,7 +30,7 @@ import { StarRatingModule } from 'angular-star-rating';
     StarRatingModule.forRoot(),
     FormsModule
   ],
-  providers: [],
+  providers: [ConfigurationProvider,SupplierChainService, SupplierMetaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
