@@ -1,0 +1,14 @@
+@import '../assets/styles/_variables';
+
+.main-wrapper
+{
+     background-color: $body-background-color;
+     font-family: 'GE Inspira';
+     
+     .app-nav-bar,
+     .app-body
+     {
+         padding: 0;
+     }
+
+}

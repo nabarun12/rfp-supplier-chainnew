@@ -1,0 +1,240 @@
+@import '../../styles';
+@import '../../assets/styles/_variables';
+
+.app-dashboard
+{
+    padding-top: 59px;
+
+    .panel-fullscreen {
+        display: block;
+        z-index: 9999;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow: auto;
+    }
+    
+    h5
+    {
+        margin-top: 12px;
+    }
+
+    .navbar
+    {
+        min-height: 40px;
+        margin-bottom: 2px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border: 0px;
+    }
+
+    .navbar-nav
+    {
+        a
+        {
+            padding: 10px;
+        }
+    }
+
+    .projects-report-dashboard
+    {
+
+        .risk-identification
+        {
+            
+            .chart-area-1
+            {
+                background: $white;
+                border: 1px solid $white;
+                border-radius: 0px 0px 4px 4px;
+                margin-bottom: 20px;
+
+                .project-status-bar
+                {
+                    // padding: 
+                    .name,
+                    .progress
+                    {
+                        display: inline-block;
+                    }
+
+                }
+
+                .status
+                {
+                    .total-project
+                    {
+                        background-color: $body-background-color;
+
+                        .project-count
+                        {
+                            font-size: 100px;
+                        }
+
+                        .value-name
+                        {
+                            margin-top: 0px;
+                        }
+
+                    }
+
+                    .red-value
+                    {
+                        color: $red;
+                    }
+
+                    .yellow-value
+                    {
+                        color: $yellow;
+                    }
+
+                }
+            }
+        }
+
+        .other-graphs
+        {
+            margin-bottom: 20px;
+
+            .card-block
+            {
+                background-color: $white;
+                border: 1px solid $white; 
+                border-radius: 0px 0px 4px 4px;
+            }
+        }
+
+        .cost-benefit-analysis
+        {
+            .cost-benefit-analysis-chart
+            {
+                background-color: $white;
+                border: 1px solid $white; 
+                border-radius: 0px 0px 4px 4px;
+            }
+        }
+    }
+
+    .projects-report-summary
+    {
+
+        .projects-details-body
+        {
+            background-color: $white;
+            height: 100vh;
+            max-height: 100vh;
+            overflow-y: scroll;
+            padding: 15px;
+
+            .card
+            {
+                .card-header,
+                .card-block
+                {
+                    border: 1px solid $gray;
+                }
+
+                .card-header
+                {
+                    .navbar
+                    {
+                        min-height:28px;
+
+                        .navbar-nav
+                        {
+                            > li
+                            {
+                                > a
+                                {
+                                    padding-top:4px !important; 
+                                    padding-bottom:0 !important;
+                                    height: 28px;
+                                }
+                            }
+                        } 
+                    }
+                }
+
+                .card-block
+                {
+                    font-size: 12px;
+
+                    .user-detail-block
+                    {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+
+                        .avatar,
+                        .user-details
+                        {
+                            display: inline-block;
+                            padding-left: 4px;
+                        }
+
+                        .avatar
+                        {
+                            width: 30%;
+                        }
+
+                        .user-details
+                        {
+                            vertical-align: bottom;
+                        }
+                    }
+
+                    .approval-date
+                    {
+                        margin-left: 1px;
+                    }
+
+                    .duration-block
+                    {
+                        margin-top: 10px; 
+                        font-size: 11px;
+                    }
+
+                    .budget-block
+                    {
+                        margin-top: 10px; 
+                        margin-bottom: 10px; 
+                        font-size: 11px;
+                    }
+
+                    .targetDuration
+                    {
+                        background-color: gray;
+                        margin-left: 3px;
+                    }
+                    
+                    .remainingDuration
+                    {
+                        background-color: lightgray;
+                    }
+
+                    .btns-group
+                    {
+                        margin-bottom: 10px;
+                        margin-top: 10px;
+
+                        .btn-default
+                        {
+                            margin-left: 4px;
+                        }
+
+                        .btn-primary
+                        {
+                            margin-right: 4px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+    
+}

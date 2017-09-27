@@ -1,0 +1,5 @@
+applications:
+  - name: CAPEX
+    buildpack: staticfile_buildpack
+    memory: 64M
+    stack: cflinuxfs2

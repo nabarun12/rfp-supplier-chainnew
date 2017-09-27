@@ -1,0 +1,719 @@
+<div class="container-fluid">
+<ul class="nav nav-tabs">
+	<li class="active"><a  href="#1" data-toggle="tab">Project Overview</a></li>
+	<li><a href="#2" data-toggle="tab">Return on Investment</a></li>
+	<!-- <li><a href="#3" data-toggle="tab">Capacity-Utilization & Regulatory Requirements</a></li> -->
+</ul>
+
+<div class="row">
+	<div class="col-xs-12 text-right btnGroups">
+	
+		<label class="btn btn-primary">Import Template <input type="file" hidden></label>		
+		<button type="button" class="btn btn-primary">Create Template</button>
+	</div>
+</div>
+		
+<div class="tab-content">
+	<div class="tab-pane active" id="1">
+		<!-- Business Category Accordian -->
+		<div class="row">
+			<div class="col-xs-12 businessCategoryTab">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="businessCategoryId">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#businessCategory" aria-expanded="false" aria-controls="businessCategory">Business & Category</a>
+							</h4>
+						</div>
+						<div id="businessCategory" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="businessCategoryId">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-2 col-xs-4">
+										<div><label>Tier 1 Business</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown">{{tier_1_business}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let business1 of businessT1"><a (click)="dropboxitemselected(business1)">{{business1}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2 col-xs-4">
+										<div><label>Tier 2 Business</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{sBusiness2}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let business2 of businessT2"><a (click)="sBusiness2 = business2">{{business2}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2 col-xs-4">
+										<div><label>Tier 3 Business</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{sBusiness3}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let business3 of businessT3"><a (click)="sBusiness3 = business3">{{business3}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2 col-xs-4">
+										<div><label>Buy or Lease</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{sBuyL}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let buyL of buyLease"><a (click)="sBuyL = buyL">{{buyL}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2 col-xs-4">
+										<div><label>Project Category</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{sPCategory}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let pCategory of projCategory"><a (click)="sPCategory = pCategory">{{pCategory}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2 col-xs-4">
+										<div><label>Legacy Alstom</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{sLegacyAlstom}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li><a (click) = "sLegacyAlstom = 'Yes'">Yes</a></li>
+												<li><a (click) = "sLegacyAlstom = 'No'">No</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2 col-xs-4">
+										<div><label>Region</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{selectedRegion}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let region of regions"><a (click)="selectedRegion = region">{{region}}</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Project Details Accordian -->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="projectOverview">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#overViewOne" aria-expanded="false" aria-controls="overViewOne">Project Overview</a>
+							</h4>
+						</div>
+						<div id="overViewOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="projectOverview">
+							<div class="panel-body">
+								<div class="row">
+									<div class="clearfix visible-xs-block"></div>
+									<div class="col-md-2">
+										<div><label>Project ID</label></div>
+										<div><input type="text" class="form-control" [(ngModel)]="projDetails.projId" placeholder="Project Title" disabled></div>
+									</div>
+									<div class="col-md-2">
+										<div><label>Project Category</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{spCategory}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let pCategory of projCategory"><a (click)="spCategory = pCategory">{{pCategory}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div><label>Project Title</label></div>
+										<div><input type="text" class="form-control" [(ngModel)]="projDetails.projTitle" placeholder="Project Title"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Project Manager</label></div>
+										<div><input type="text" class="form-control" placeholder="Project Manager"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>EB Sponsor</label></div>
+										<div><input type="text" class="form-control" placeholder="EB Sponsor"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
+										<div><label>Project Created On</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Status Updated On</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Is this project associated with an Appropriation Request</label></div>
+										<label class="radio-inline">
+											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Yes
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">No
+										</label>
+									</div>
+									<div class="col-md-3">
+										<div><label>AR number</label></div>
+										<div><input type="text" class="form-control" placeholder="AR Number"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
+										<div><label>Is this project associated with multiple AR</label></div>
+										<label class="radio-inline">
+											<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">Yes
+										</label>
+										<label class="radio-inline">
+											<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">No
+										</label>
+									</div>
+									<div class="col-md-3">
+										<div><label>Associated ARs</label></div>
+										<div><input type="text" class="form-control" placeholder="AR Number"></div>
+									</div>
+									<div class="col-md-2">
+										<div><label>Project Type</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select Type
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li><a>New</a></li>
+												<li><a>Carry Over</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div><label>If this is a modification to existing Equipment</label></div>
+										<div><input type="text" class="form-control" placeholder="FAMS/GEARS ID or NA"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
+										<div><label>Project Start Date</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Status End Date</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Project Duration</label></div>
+										<div><input type="text" class="form-control" placeholder="Project Duration"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Project Status</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{selectedPStatus}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let status of statuses"><a (click)="selectedPStatus = status">{{status}}</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div><label>Problem Statement</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+									<div class="col-md-6">
+										<div><label>Describe implications of delaying project to later date</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+									<!-- <div class="col-md-6">
+										<div><label>Status Description</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div> -->
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div><label>What other alternative approaches were considered?</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+									<div class="col-md-6">
+										<div><label>Cost of alternative approach</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div><label>Risk Description</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+									<div class="col-md-6">
+										<div><label>Is this investment a mandatory prerequisite for other projects? Elaborate</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div><label>Comments</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+									<div class="col-md-6">
+										<div><label>Does this project support a specific frame, initiative, or technology (e.g., 9F)? If yes, then please explain</label></div>
+										<div><textarea class="form-control" rows="3"></textarea></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
+										<div><label>Risk Category</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{sRisk}}
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let risk of riskCategory"><a (click)="sRisk = risk">{{risk}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Recent Comment Date</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Status End Date</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+									<div class="col-md-3">
+											
+										<div class="form-group">
+											<label for="inputFile">Update Relevant Documents</label>
+											<input type="file" id="inputFile">
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="tab-pane" id="2">
+		<!-- Investment Accordian -->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="investmentId">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#investment" aria-expanded="false" aria-controls="investment">Investment</a>
+							</h4>
+						</div>
+						<div id="investment" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="investmentId">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-12">
+										<table class="table table-hover table-bordered table-responsive">
+											<thead>
+												<tr>
+													<th>Category/Year</th>
+													<th *ngFor="let year of years">{{year}}</th>
+													<th>Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>P&E</td>
+													<td *ngFor="let yearAmount of yearInvestment">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Software</td>
+													<td *ngFor="let yearAmount of software">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Incremental Non Recurring Expense</td>
+													<td *ngFor="let yearAmount of software">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Others</td>
+													<td *ngFor="let yearAmount of software">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Total Investment</td>
+													<td *ngFor="let yearAmount of yearInvestment">{{yearAmount*1 | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2">
+										<div><label>Labor Type</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select Labor Type
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li><a>GE</a></li>
+												<li><a>Contractor</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div><label># of People</label></div>
+										<div><input type="text" class="form-control" placeholder="# of People"></div>
+									</div>
+									<div class="col-md-2">
+										<div><label># of Labor Hours</label></div>
+										<div><input type="text" class="form-control" placeholder="# of Labor Hours"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Benefits Accordian -->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="benefitsId">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#benefitsAcc" aria-expanded="false" aria-controls="benefitsAcc">Benefits</a>
+							</h4>
+						</div>
+						<div id="benefitsAcc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="benefitsId">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-12">
+										<table class="table table-hover table-bordered">
+											<thead>
+												<tr>
+													<th>Category/Year</th>
+													<th *ngFor="let year of years">{{year}}</th>
+													<th>Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Productivity</td>
+													<td *ngFor="let yearAmount of productivity">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Cost Avoidance</td>
+													<td *ngFor="let yearAmount of costAvoidance">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Funds Flow</td>
+													<td *ngFor="let yearAmount of costAvoidance">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Maintenance Cost Reduction</td>
+													<td *ngFor="let yearAmount of costAvoidance">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Others</td>
+													<td *ngFor="let yearAmount of costAvoidance">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr class="info">
+													<td>Total Yearly Benefits</td>
+													<td *ngFor="let yearAmount of productivity">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Incremental CM</td>
+													<td *ngFor="let yearAmount of costAvoidance">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr class="info">
+													<td>Cash Flow</td>
+													<td *ngFor="let yearAmount of productivity">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr class="info">
+													<td>Cumulative Cash Flow</td>
+													<td *ngFor="let yearAmount of cummulativeCashFlow">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row">
+									<!-- <div class="col-md-4">
+										<div><label>Fraction Calculation for Payback Period</label></div>
+										<div><span class="label label-success">{{yearInvestment[6] | currency:'USD': true: '1.0-2'}}</span></div>
+									</div> -->
+									<div class="col-md-4">
+										<div><label>IRR</label></div>
+										<div><span class="label label-success">18.7%</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		 
+		<!-- ROI Accordian -->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="roiId">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#roiAcc" aria-expanded="false" aria-controls="roiAcc">Return on Investment</a>
+							</h4>
+						</div>
+						<div id="roiAcc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="roiId">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-xs-12">
+										<table class="table table-hover table-bordered">
+											<thead>
+												<tr>
+													<th>Category/Year</th>
+													<th *ngFor="let year of years">{{year}}</th>
+													<th>Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Discounted Investment</td>
+													<td *ngFor="let yearAmount of costAvoidance">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Discounted Benefits</td>
+													<td *ngFor="let yearAmount of discountedBenefits">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+												<tr>
+													<td>Discounted Cash Flow</td>
+													<td *ngFor="let yearAmount of discountedCashFlow">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div><label>5 Year NPV</label> <span class="label label-success">{{npvValue | currency:'USD': true: '1.0-2'}}</span> </div>
+									</div>
+									<div class="col-md-4">
+										<div><label>Payback period</label>
+										<span class="label label-success">2.94</span></div>
+									</div>
+									<div class="col-md-4">
+										<div><label>ROI</label>
+										<span class="label label-success">0.699</span></div>
+									</div>
+								</div>
+								<!--<div class="row">
+									 <div class="col-md-3">
+										<div><label>The Integer of Payback Period</label></div>
+										<div><span class="label label-success">{{yearInvestment[5] | currency:'USD': true: '1.0-2'}}</span></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>The Fraction of Payback Period</label></div>
+										<div><span class="label label-success">{{yearInvestment[4] | currency:'USD': true: '1.0-2'}}</span></div>
+									</div> 
+								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- <div class="tab-pane" id="3">
+		 Current Capacity & Utilization Accordian
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="capUtilId">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#capUtilization" aria-expanded="false" aria-controls="capUtilization">Current Capacity & Utilization-NPI/NTI PROJECTS ONLY</a>
+							</h4>
+						</div>
+						<div id="capUtilization" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="capUtilId">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-4">
+										<div><label>Project Positioning</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select Project Positioning
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li *ngFor="let projPosition of projPositionArr"><a>{{projPosition}}</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div><label>Current Capacity</label></div>
+										<div><input type="number" class="form-control" placeholder="Current Capacity"></div>
+									</div>
+									<div class="col-md-4">
+										<div><label>Current Utilization (%)</label></div>
+										<div><input type="number" class="form-control" placeholder="Current Utilization (%)"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div><label>Good Count</label></div>
+										<div><input type="number" class="form-control" placeholder="Ideal Cycle Time"></div>
+									</div>
+									<div class="col-md-4">
+										<div><label>Ideal Cycle Time</label></div>
+										<div><input type="number" class="form-control" placeholder="Ideal Cycle Time"></div>
+									</div>
+									<div class="col-md-4">
+										<div><label>Planned Production Time</label></div>
+										<div><input type="number" class="form-control" placeholder="Planned Production Time"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div><label>Current OEE%</label></div>
+										<div><span class="label label-success">{{oeePercent|percent}}</span></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
+										<div><label>Required Capacity</label></div>
+										<div><input type="number" class="form-control" placeholder="Required Capacity"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Capacity After Project</label></div>
+										<div><input type="number" class="form-control" placeholder="Capacity After Project"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Current first-time Yield(%)</label></div>
+										<div><input type="number" class="form-control" placeholder="Current first-time Yield(%)"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Capacity Required Date</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12">
+										<div><label>Sales from NPI</label></div>
+										<table class="table table-hover table-bordered table-responsive">
+											<thead>
+												<tr>
+													<th>Sales/Year</th>
+													<th *ngFor="let year of years">{{year}}</th>
+													<th>Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Sales from NPI</td>
+													<td *ngFor="let yearAmount of yearInvestment">{{yearAmount | currency:'USD': true: '1.0-2'}}</td>
+												</tr>												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		 Regulatory Requirements Accordian
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="regulatoryId">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#regulatoryReq" aria-expanded="false" aria-controls="regulatoryReq">Regulatory Requirements- EHS/COMPLIANCE PROJECTS ONLY</a>
+							</h4>
+						</div>
+						<div id="regulatoryReq" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="regulatoryId">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div><label>Specific regulation/safety Clause</label></div>
+										<div><textarea class="form-control" rows="2"></textarea></div>
+									</div>
+									<div class="col-md-6">
+										<div><label>What/who is the regulatory body or safety agency?</label></div>
+										<div><textarea class="form-control" rows="2"></textarea></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div><label>Description of regulatory/safety requirement or guidelines</label></div>
+										<div><textarea class="form-control" rows="2"></textarea></div>
+									</div>
+									<div class="col-md-6">
+										<div><label>Implications or risks of non-compliance with regulatory/safety requirement</label></div>
+										<div><textarea class="form-control" rows="2"></textarea></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3">
+										<div><label>Issues Resolution Date</label></div>
+										<div><input type="date" class="form-control"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Mandatory?</label></div>
+										<div class="dropdown">
+											<button class="btn btn-default dropdown-toggle" type="button" id="businessT1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Select Project Positioning
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" aria-labelledby="businessT1">
+												<li><a>Yes</a></li>
+												<li><a>No</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Number of Injuries/Illnesses</label></div>
+										<div><input type="number" class="form-control" placeholder="Current first-time Yield(%)"></div>
+									</div>
+									<div class="col-md-3">
+										<div><label>Working Hours of Employees</label></div>
+										<div><input type="number" class="form-control" placeholder="Working Hours"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div><label>OSHA Incident Rate</label></div>
+										<div><span class="label label-success">{{oeePercent}}</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+	
+</div>
+

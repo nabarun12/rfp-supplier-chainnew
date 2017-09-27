@@ -1,0 +1,131 @@
+<div class="container">
+    <h3 class="text-center">
+        Welcome to the Supplier Chain
+    </h3>
+</div>
+<div class="supplier-details">
+    <div class="supplier-details-card row">
+        <div class="col-md-3 card">
+            <div class="card-header">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid" data-toggle="modal" data-target="#myModal" (click)="checkRating()">
+                        <div class="navbar-header">
+                            <h5>Supplier Since</h5>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a>
+                                    <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="card-body">
+                    <div class="body-alignment">
+                        <h3 class="card-title"><b>Wind Energy Technology</b></h3>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="text-left"><label>Email Address:</label></p>
+                        <p class="text-left"><label>Contact No. :</label></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="different-param-rating col-md-3">
+                            <div class="row rating-block-header">
+                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-6">
+                                    Rating
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span>
+                    Price
+                  </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span>
+                    Quality
+                  </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span>
+                    Bid Response
+                  </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span>
+                    Message Response
+                  </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span>
+                    Technical Capability
+                  </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
+                                </div>
+                            </div>
+
+                            <div class="row rating-block-summary">
+                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-6">
+                                    {{avgRating}}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="reviews col-md-6">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="app-navigation-bar">
+    <ul class="nav nav-pills nav-stacked" role="tablist">
+        <li class="navs" [ngClass]="{'active': type === 'dashboard'}">
+            <a routerLink="/dashboard" (click)="type = 'dashboard'"><span class="glyphicon glyphicon-th-large"></span> Dashboard</a>
+        </li>
+        <!--<li class="navs" [ngClass]="{'active': type === 'projects'}">
+            <a routerLink="/projects" (click)="type = 'projects'"><span class="glyphicon glyphicon-plus"></span> New Project</a>
+        </li>
+        <li class="navs" [ngClass]="{'active': type === 'mybutton'}">
+      <a href="#"><i class="glyphicon glyphicon-list" aria-hidden="true"></i> Scenario Planning</a>
+    </li>-->
+        <li class="navs" [ngClass]="{'active': type === 'mybutton'}">
+            <a href="#"><span class="glyphicon glyphicon-thumbs-up"></span> Approvals</a>
+        </li>
+        <!--<li class="navs" [ngClass]="{'active': type === 'mybutton'}">
+      <a href="#"><span class="glyphicon glyphicon-stats"></span> Analytics</a>
+    </li>        
+    <li class="navs"  [ngClass]="{'active': type === 'projects'}">
+      <a routerLink="/projects" (click) = "type = 'projects'"><span class="glyphicon glyphicon-briefcase"></span> Projects</a>
+    </li>        -->
+    </ul>
+</div>

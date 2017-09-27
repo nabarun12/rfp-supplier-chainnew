@@ -1,0 +1,623 @@
+<div class="app-dashboard">
+  <div class="projects-report-dashboard" [className] = "projectsReportDashboard">
+    <div class="risk-identification">
+      <div [className]="riskIdentification">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <h5>Risk Identification</h5>
+              </div>
+              <ul class="nav navbar-nav navbar-right"> 
+                <li><a id="panel-fullscreen" (click)="openDialog()" role="button" title="Toggle fullscreen">
+                  <span class="glyphicon glyphicon-resize-full"></span></a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="row chart-area-1">
+          <div class="col-md-8 bar-chart-risk-identification">
+            <!--<div class="project-status-bar">
+              <div class="name">
+                <span> ABC Project </span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+                  Free Space
+                </div>
+                <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+                  Danger
+                </div>
+              </div>
+
+            </div>-->
+            <canvas #riskIdentificationChart height="260px"></canvas>
+          </div>
+          <div class="col-md-4 status text-center">
+            <div class="row total-project">
+              <div class="col-md-12">
+                <span class="project-count">16</span>
+                <h3 class="value-name">Projects</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 overbudget-project">
+                <h1 class="red-value">5</h1>
+                <span>Overbudget</span>
+              </div>
+              <div class="col-md-6 overdue-project">
+                <h1 class="red-value">2</h1>
+                <span>Overdue</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 due-day">
+                <h1 class="yellow-value">6</h1>
+                <span>Due in 30</span>
+              </div>
+              <div class="col-md-6 budget-limit">
+                <h1 class="yellow-value">3</h1>
+                <span>Approaching Budget Limit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="other-graphs row">
+      <div class="card" [className] = "fundingRequests">
+        <div class="card-header">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <h5>Funding Requests</h5>
+              </div>
+              <ul class="nav navbar-nav navbar-right"> 
+                <li><a href="#"><span class="glyphicon glyphicon-resize-full"></span></a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="card-block">
+          <canvas #fundingRequest></canvas>
+        </div>
+      </div>
+
+      <div class="card" [className] = "projectTracking">
+        <div class="card-header">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <h5>Project Tracking</h5>
+              </div>
+              <ul class="nav navbar-nav navbar-right"> 
+                <li><a href="#"><span class="glyphicon glyphicon-resize-full"></span></a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="card-block">
+          <canvas #projectTracking></canvas>
+        </div>
+      </div>
+
+      <div class="card" [className] = "expenditure">
+        <div class="card-header">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <h5>Expenditures</h5>
+              </div>
+              <ul class="nav navbar-nav navbar-right"> 
+                <li><a href="#"><span class="glyphicon glyphicon-resize-full"></span></a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="card-block">
+          <canvas #expenditure></canvas>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="cost-benefit-analysis">
+      <div [className]="costBenefitAnalysis">
+        <nav class="row navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <h5>Cost Benefit Analysis</h5>
+            </div>
+            <ul class="nav navbar-nav navbar-right"> 
+              <li><a href="#"><span class="glyphicon glyphicon-resize-full"></span></a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="row cost-benefit-analysis-chart">
+          <canvas #costBenefitAnalysisChart></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-report-summary" [className] = "projectsReportSummary">
+    <div class="row projects-details">
+        <div class="col-md-12">
+          <div class="row">
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <h5>Projects</h5>
+                </div>
+                <ul class="nav navbar-nav navbar-right"> 
+                  <li><a href="#"><span class="glyphicon glyphicon-resize-full"></span></a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="row projects-details-body">
+        <div class="row">
+          <div class="col-md-6 card">
+            <div class="card-header">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <h5>GAMS</h5>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right"> 
+                    <li><a>In Progress</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="card-block">
+              <div class="row">
+                <div class="col-md-12 user-detail-block">
+                    <div class="avatar">
+                        <img class="img-responsive img-thumbnail"alt="" src="https://randomuser.me/api/portraits/men/65.jpg">
+                    </div>
+                    <div class="user-details">
+                        <span class="card-title"><strong>Project Owner : </strong></span>
+                        <span>John Doe</span>
+                        <div class="card-text">john.doe@ge.com</div>
+                        <div class="card-text">513-887-5641</div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 approval-date">
+                  <span><strong>Approval Date:  </strong></span><span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row duration-block">
+                <div class="col-md-3">
+                  <span><strong>Duration</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>06/23/2017</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row budget-block">
+                <div class="col-md-3">
+                  <span><strong>Budget</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>$303000</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>$5100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 card">
+            <div class="card-header">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <h5>MDM</h5>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right"> 
+                    <li><a>In Progress</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="card-block">
+              <div class="row">
+                <div class="col-md-12 user-detail-block">
+                    <div class="avatar">
+                        <img class="img-responsive img-thumbnail"alt="" src="http://lorempixel.com/100/100/people/9/">
+                    </div>
+                    <div class="user-details">
+                        <span class="card-title"><strong>Project Owner : </strong></span>
+                        <span>Lisa Key</span>
+                        <div class="card-text">key.lisa@ge.com</div>
+                        <div class="card-text">513-877-4589</div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 approval-date">
+                  <span><strong>Approval Date:  </strong></span><span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row duration-block">
+                <div class="col-md-3">
+                  <span><strong>Duration</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>06/23/2017</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row budget-block">
+                <div class="col-md-3">
+                  <span><strong>Budget</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>$303000</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>$5100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--reetative code-->
+        <p></p>
+        <div class="row">
+          <div class="col-md-6 card">
+            <div class="card-header">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <h5>PMS</h5>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right"> 
+                    <li><a>In Progress</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="card-block">
+              <div class="row">
+                <div class="col-md-12 user-detail-block">
+                    <div class="avatar">
+                        <img class="img-responsive img-thumbnail"alt="" src="https://randomuser.me/api/portraits/women/40.jpg">
+                    </div>
+                    <div class="user-details">
+                        <span class="card-title"><strong>Project Owner : </strong></span>
+                        <span>Monica Jay</span>
+                        <div class="card-text">monica.jay@ge.com</div>
+                        <div class="card-text">896-887-7425</div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 approval-date">
+                  <span><strong>Approval Date:  </strong></span><span>06/04/2017</span>
+                </div>
+              </div>
+              <div class="row duration-block">
+                <div class="col-md-3">
+                  <span><strong>Duration</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>06/23/2017</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row budget-block">
+                <div class="col-md-3">
+                  <span><strong>Budget</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>$303000</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>$5100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 card">
+            <div class="card-header">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <h5>BI Analytics</h5>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right"> 
+                    <li><a>Rejected</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="card-block">
+              <div class="row">
+                <div class="col-md-12 user-detail-block">
+                    <div class="avatar">
+                        <img class="img-responsive img-thumbnail"alt="" src="https://randomuser.me/api/portraits/women/50.jpg">
+                    </div>
+                    <div class="user-details">
+                        <span class="card-title"><strong>Project Owner : </strong></span>
+                        <span>Misha Samuels</span>
+                        <div class="card-text">misha.samuels@ge.com</div>
+                        <div class="card-text">458-562-7564</div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 approval-date">
+                  <span><strong>Requeste Rejected:  </strong></span><span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row btns-group">
+                <div class="col-md-5">
+                  <button type="button" class="btn btn-default btn-sm">Remove</button>
+                </div>
+                <div class="col-md-7">
+                  <button type="button" class="btn btn-primary btn-sm">View Comments</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <p></p>
+          <!--3rd row-->
+
+          <div class="row">
+          <div class="col-md-6 card">
+            <div class="card-header">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <h5>Energy Management</h5>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right"> 
+                    <li><a>Closed</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="card-block">
+              <div class="row">
+                <div class="col-md-12 user-detail-block">
+                    <div class="avatar">
+                        <img class="img-responsive img-thumbnail"alt="" src="https://randomuser.me/api/portraits/men/52.jpg">
+                    </div>
+                    <div class="user-details">
+                        <span class="card-title"><strong>Project Owner : </strong></span>
+                        <span>Matthew Hayden</span>
+                        <div class="card-text">matthew.hayden@ge.com</div>
+                        <div class="card-text">513-887-5641</div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 approval-date">
+                  <span><strong>Approval Date:  </strong></span><span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row duration-block">
+                <div class="col-md-3">
+                  <span><strong>Duration</strong></span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>01/15/2017</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row budget-block">
+                <div class="col-md-3">
+                  <span><strong>Budget</strong></span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>$51258</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>$10000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 card">
+            <div class="card-header">
+              <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <h5>GAS</h5>
+                  </div>
+                  <ul class="nav navbar-nav navbar-right"> 
+                    <li><a>In Progress</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="card-block">
+              <div class="row">
+                <div class="col-md-12 user-detail-block">
+                    <div class="avatar">
+                        <img class="img-responsive img-thumbnail"alt="" src="https://randomuser.me/api/portraits/men/84.jpg">
+                    </div>
+                    <div class="user-details">
+                        <span class="card-title"><strong>Project Owner : </strong></span>
+                        <span>Mark Sanders</span>
+                        <div class="card-text">sanders.mark@ge.com</div>
+                        <div class="card-text">513-887-5641</div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 approval-date">
+                  <span><strong>Approval Date:  </strong></span><span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row duration-block">
+                <div class="col-md-3">
+                  <span><strong>Duration</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>06/23/2017</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>06/23/2017</span>
+                </div>
+              </div>
+              <div class="row budget-block">
+                <div class="col-md-3">
+                  <span><strong>Budget</strong></span>
+                </div>
+                <div class="col-md-4 targetDuration">
+                    <span>$303000</span>
+                </div>
+                <div class="col-md-4 remainingDuration">
+                    <span>$5100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+            <!--4th row-->
+
+            <p></p>
+
+            <div class="row">
+              <div class="col-md-6 card">
+                <div class="card-header">
+                  <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <h5>EAS</h5>
+                      </div>
+                      <ul class="nav navbar-nav navbar-right"> 
+                        <li><a>In Progress</a></li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>
+                <div class="card-block">
+                  <div class="row">
+                    <div class="col-md-12 user-detail-block">
+                        <div class="avatar">
+                            <img class="img-responsive img-thumbnail"alt="" src="https://randomuser.me/api/portraits/men/88.jpg">
+                        </div>
+                        <div class="user-details">
+                            <span class="card-title"><strong>Project Owner : </strong></span>
+                            <span>John Doe</span>
+                            <div class="card-text">john.doe@ge.com</div>
+                            <div class="card-text">513-887-5641</div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 approval-date">
+                      <span><strong>Approval Date:  </strong></span><span>06/23/2017</span>
+                    </div>
+                  </div>
+                  <div class="row duration-block">
+                    <div class="col-md-3">
+                      <span><strong>Duration</strong></span>
+                    </div>
+                    <div class="col-md-4 targetDuration">
+                        <span>06/23/2017</span>
+                    </div>
+                    <div class="col-md-4 remainingDuration">
+                        <span>06/23/2017</span>
+                    </div>
+                  </div>
+                  <div class="row budget-block">
+                    <div class="col-md-3">
+                      <span><strong>Budget</strong></span>
+                    </div>
+                    <div class="col-md-4 targetDuration">
+                        <span>$303000</span>
+                    </div>
+                    <div class="col-md-4 remainingDuration">
+                        <span>$5100</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 card">
+                <div class="card-header">
+                  <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <h5>Predictive</h5>
+                      </div>
+                      <ul class="nav navbar-nav navbar-right"> 
+                        <li><a>In Progress</a></li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>
+                <div class="card-block">
+                  <div class="row">
+                    <div class="col-md-12 user-detail-block">
+                        <div class="avatar">
+                            <img class="img-responsive img-thumbnail"alt="" src="https://randomuser.me/api/portraits/men/73.jpg">
+                        </div>
+                        <div class="user-details">
+                            <span class="card-title"><strong>Project Owner : </strong></span>
+                              <span>John Doe</span>
+                              <div class="card-text">john.doe@ge.com</div>
+                              <div class="card-text">513-887-5641</div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 approval-date">
+                      <span><strong>Approval Date:  </strong></span><span>06/23/2017</span>
+                    </div>
+                  </div>
+                  <div class="row duration-block">
+                    <div class="col-md-3">
+                      <span><strong>Duration</strong></span>
+                    </div>
+                    <div class="col-md-4 targetDuration">
+                        <span>06/23/2017</span>
+                    </div>
+                    <div class="col-md-4 remainingDuration">
+                        <span>06/23/2017</span>
+                    </div>
+                  </div>
+                  <div class="row budget-block">
+                    <div class="col-md-3">
+                      <span><strong>Budget</strong></span>
+                    </div>
+                    <div class="col-md-4 targetDuration">
+                        <span>$303000</span>
+                    </div>
+                    <div class="col-md-4 remainingDuration">
+                        <span>$5100</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <!--end-->
+      </div>
+  </div>
+</div>
